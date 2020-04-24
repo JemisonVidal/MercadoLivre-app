@@ -1,20 +1,20 @@
-import mercadoLivre from 'mercadolibre';
+import meli from 'mercadolibre';
 require('dotenv').config();
 
 class MercadoLivre {
   token: string;
-  mercadoLivreObj: mercadoLivre.meli;
+  mercadoLivreObj: any;
 
   constructor(token: string) {
     this.token = token;
-    this.mercadoLivreObj = new mercadoLivre.meli(
+    this.mercadoLivreObj = new meli.Meli(
       process.env.CLIENT_ID,
       process.env.CLIENT_SECRET,
       token
     );
   }
 
-  private async geti(url: string, params?: string) {
+  private async get(url: string, params?: string) {
     return await this.mercadoLivreObj.get(url, params);
   }
 

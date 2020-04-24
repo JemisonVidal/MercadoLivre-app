@@ -1,4 +1,5 @@
 import { Router } from 'express';
+import validateToken from './middlewares/token';
 import UserController from './app/controllers/userController';
 import ProdutoController from './app/controllers/produtoController';
 
@@ -11,10 +12,10 @@ class Routers {
   }
 
   private routes() {
-    this.router.post('/user', UserController.auth);
+    this.router.post('/user', validateToken, UserController.auth);
 
-    this.router.get('/produto', ProdutoController.show);
-    this.router.post('/produto', ProdutoController.create);
+    this.router.get('/produto', validateToken, ProdutoController.show);
+    this.router.post('/produto', validateToken, ProdutoController.create);
   }
 }
 

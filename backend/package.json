@@ -8,7 +8,7 @@
     "name": "Jemison Vidal"
   },
   "scripts": {
-    "start": "nodemon --inspect src/start.ts",
+    "start": "nodemon src/server.ts",
     "test": "jest"
   },
   "dependencies": {
